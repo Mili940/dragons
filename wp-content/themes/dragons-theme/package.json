@@ -1,0 +1,33 @@
+{
+   "name": "wp-parcel",
+   "version": "1.0.0",
+   "description": "Custom parcel file for WP theme",
+   "author": "MBN",
+   "license": "ISC",
+   "browserslist": [
+      "> 0.5%",
+      "last 3 versions",
+      "Android >= 4",
+      "Firefox >= 20",
+      "iOS >= 6",
+      "Safari >= 9"
+   ],
+   "alias": {
+      "jquery": {
+         "global": "$"
+      }
+   },
+   "scripts": {
+      "dev": "parcel assets/css/main.scss assets/js/main.js --port 3000 --host localhost --dist-dir ./dist --no-cache",
+      "build": "parcel build assets/css/main.scss assets/js/main.js --dist-dir ./dist --no-cache"
+   },
+   "dependencies": {
+      "browserslist": "^4.21.7",
+      "sass": "^1.59.3",
+      "slick-carousel": "^1.8.1"
+   },
+   "devDependencies": {
+      "@parcel/transformer-sass": "^2.8.3",
+      "parcel": "^2.8.3"
+   }
+}

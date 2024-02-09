@@ -1,0 +1,7 @@
+# Node Modules
+.DS_Store
+node_modules/
+.idea/
+.vscode/
+package-lock.json
+.parcel-cache

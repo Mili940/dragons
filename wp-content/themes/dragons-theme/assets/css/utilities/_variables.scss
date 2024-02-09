@@ -1,0 +1,109 @@
+/**************************************************
+* In this file call fonts and set all variables
+**************************************************/
+// Colors:
+$main-dark: #000;
+$main-font-color: $main-dark;
+$main-white: #fff;
+$gray: #67696b;
+$purple: #6455FF;
+
+/*Font Variables*/
+$primary-font: "Roboto", sans-serif;;
+$secundary-font: "Roboto Condensed", sans-serif;
+
+// Font Weight
+$font-weights: (
+   regular: 400,
+   bold: bold
+);
+
+//Font Size
+$font-sizes: (
+  small: 14px,
+  base: 16px,
+  larg: 18px,
+);
+$main-line-height: 1.2em;
+/**************************************************
+* $headers
+* 1. font-size
+* 2. line-height
+* 3. font-weight
+* 4. font-family
+* 5. margin-top
+* 6. margin-bottom
+**************************************************/
+$headers: (
+  h1: (
+    50px,
+    1,
+    map-get($font-weights, bold),
+    $primary-font,
+    1em,
+    1em,
+  ),
+  h2: (
+    40px,
+    1.172,
+    map-get($font-weights, 400),
+    $secundary-font,
+    0,
+    0,
+  ),
+  h3: (
+    24px,
+    1,
+    map-get($font-weights, bold),
+    $primary-font,
+    1em,
+    1em,
+  ),
+  h4: (
+    20px,
+    1,
+    map-get($font-weights, bold),
+    $primary-font,
+    1em,
+    1em,
+  ),
+  h5: (
+    18px,
+    1,
+    map-get($font-weights, bold),
+    $primary-font,
+    1em,
+    1em,
+  ),
+  h6: (
+    15px,
+    1,
+    map-get($font-weights, bold),
+    $primary-font,
+    1em,
+    1em,
+  ),
+);
+/******************************************************************
+* If use min-width for resposnive 
+* on breakpoitn variables add 1px in code
+******************************************************************/
+$grid-gutter: 15px;
+
+// Breakpoints
+$breakpoints: (
+  desktop: 1920px,
+  laptop: 1660px,
+  mac: 1440px,
+  lt: 1366px,
+  ls: 1280px,
+  lg: 1199px,
+  ipad: 1024px,
+  md: 991px,
+  sm: 767px,
+  mb: 575px,
+  iphone: 420px,
+  xs: 350px,
+);
+// Container
+$container-width: 1030px;

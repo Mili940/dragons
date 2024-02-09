@@ -1,0 +1,422 @@
+/*--------------------------------------------------------------
+# Base style setup for WP
+--------------------------------------------------------------*/
+
+/*General Style*/
+body {
+  color: $main-dark;
+  font-family: $primary-font;
+  font-size: map-get($font-sizes, base);
+  font-weight: map-get($font-weights, regular);
+  line-height: 1.25;
+  margin: 0;
+  padding: 0;
+  line-height: $main-line-height;
+  min-height: calc(var(--vh, 1vh) * 100);
+  &.menu-active {
+    overflow-y: hidden;
+  }
+  @include max-mq(767px) {
+    font-size: 18px;
+  }
+  //   Headers
+  @each $header, $sizes in $headers {
+    #{$header} {
+      font-size: nth($sizes, 1);
+      line-height: nth($sizes, 2);
+      font-weight: nth($sizes, 3);
+      font-family: nth($sizes, 4);
+      margin-top: nth($sizes, 5);
+      margin-bottom: nth($sizes, 6);
+      clear: both;
+    }
+  }
+}
+
+/*--------------------------------------------------------------
+# Clearfix
+--------------------------------------------------------------*/
+.clearfix {
+  &:after,
+  &:before {
+    visibility: hidden;
+    display: table;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+  }
+}
+
+* html .clearfix {
+  height: 1%;
+}
+
+.clearfix {
+  display: block;
+}
+
+.clear:before,
+.clear:after,
+.entry-content:before,
+.entry-content:after,
+.comment-content:before,
+.comment-content:after,
+.site-header:before,
+.site-header:after,
+.site-content:before,
+.site-content:after,
+.site-footer:before,
+.site-footer:after {
+  content: "";
+  display: table;
+  table-layout: fixed;
+}
+
+.clear:after,
+.entry-content:after,
+.comment-content:after,
+.site-header:after,
+.site-content:after,
+.site-footer:after {
+  clear: both;
+}
+
+/*--------------------------------------------------------------
+# Widgets
+--------------------------------------------------------------*/
+.widget {
+  margin: 0 0 1em;
+}
+
+/* Make sure select elements fit in widgets. */
+.widget select {
+  max-width: 100%;
+}
+
+/*--------------------------------------------------------------
+## Posts and pages
+--------------------------------------------------------------*/
+.sticky {
+  display: block;
+}
+
+.hentry {
+  margin: 0 0 1em;
+}
+
+.byline,
+.updated:not(.published) {
+  display: none;
+}
+
+.single .byline,
+.group-blog .byline {
+  display: inline;
+}
+
+.page-content,
+.entry-content,
+.entry-summary {
+  margin: 1em 0 0;
+}
+
+.page-links {
+  clear: both;
+  margin: 0 0 1em;
+}
+
+/*--------------------------------------------------------------
+## Asides
+--------------------------------------------------------------*/
+.blog .format-aside .entry-title,
+.archive .format-aside .entry-title {
+  display: none;
+}
+
+/*--------------------------------------------------------------
+## Comments
+--------------------------------------------------------------*/
+.comment-content a {
+  word-wrap: break-word;
+}
+
+.bypostauthor {
+  display: block;
+}
+
+/*--------------------------------------------------------------
+## Comments
+--------------------------------------------------------------*/
+.comment-content a {
+  word-wrap: break-word;
+}
+
+.bypostauthor {
+  display: block;
+}
+
+/*--------------------------------------------------------------
+# Infinite scroll
+--------------------------------------------------------------*/
+/* Globally hidden elements when Infinite Scroll is supported and in use. */
+.infinite-scroll .posts-navigation, /* Older / Newer Posts Navigation (always hidden) */
+.infinite-scroll.neverending .site-footer {
+  /* Theme Footer (when set to scrolling) */
+  display: none;
+}
+
+/* When Infinite Scroll has reached its end we need to re-display elements that were hidden (via .neverending) before. */
+.infinity-end.neverending .site-footer {
+  display: block;
+}
+
+/*--------------------------------------------------------------
+# Media
+--------------------------------------------------------------*/
+.page-content .wp-smiley,
+.entry-content .wp-smiley,
+.comment-content .wp-smiley {
+  border: none;
+  margin-bottom: 0;
+  margin-top: 0;
+  padding: 0;
+}
+
+/*--------------------------------------------------------------
+## Captions
+--------------------------------------------------------------*/
+.wp-caption {
+  margin-bottom: 1em;
+  max-width: 100%;
+}
+
+.wp-caption img[class*="wp-image-"] {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.wp-caption .wp-caption-text {
+  margin: 0.8075em 0;
+}
+
+.wp-caption-text {
+  text-align: center;
+}
+
+/*--------------------------------------------------------------
+## Galleries
+--------------------------------------------------------------*/
+.gallery {
+  margin-bottom: 0;
+
+  img {
+    display: block;
+  }
+}
+
+.gallery-item {
+  display: inline-block;
+  text-align: center;
+  vertical-align: top;
+  width: 100%;
+}
+
+.gallery-columns-2 .gallery-item {
+  max-width: 50%;
+}
+
+.gallery-columns-3 .gallery-item {
+  max-width: 33.33%;
+}
+
+.gallery-columns-4 .gallery-item {
+  max-width: 25%;
+}
+
+.gallery-columns-5 .gallery-item {
+  max-width: 20%;
+}
+
+.gallery-columns-6 .gallery-item {
+  max-width: 16.66%;
+}
+
+.gallery-columns-7 .gallery-item {
+  max-width: 14.28%;
+}
+
+.gallery-columns-8 .gallery-item {
+  max-width: 12.5%;
+}
+
+.gallery-columns-9 .gallery-item {
+  max-width: 11.11%;
+}
+
+.gallery-caption {
+  display: block;
+}
+
+.full-width {
+  float: left;
+  width: 100%;
+}
+
+.text-center,
+.align-center {
+  text-align: center;
+}
+
+.align-left {
+  text-align: left;
+}
+
+.align-right {
+  text-align: right;
+}
+
+.text-uppercase {
+  text-transform: uppercase;
+}
+
+.alignleft {
+  display: inline;
+  float: left;
+  margin-right: 1em;
+}
+
+.alignright {
+  display: inline;
+  float: right;
+  margin-left: 1em;
+}
+
+.aligncenter {
+  clear: both;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.alignvertical {
+  vertical-align: middle;
+}
+
+/* Theme clasess */
+
+/* Flexbox */
+.flex {
+  display: flex;
+  &-wrap {
+    flex-wrap: wrap;
+  }
+  &-row {
+    flex-direction: row;
+    &-reverse {
+      flex-direction: row-reverse;
+    }
+  }
+  &-col {
+    flex-direction: column;
+    &-reverse {
+      flex-direction: column-reverse;
+    }
+  }
+}
+
+/* Bacground */
+.bg {
+  &-cover {
+    background-size: cover;
+  }
+  &-contain {
+    background-size: contain;
+  }
+  &-center {
+    background-position: center;
+  }
+  &-left {
+    background-position-x: left;
+  }
+  &-right {
+    background-position-x: right;
+  }
+  &-top {
+    background-position-y: top;
+  }
+  &-bottom {
+    background-position-y: bottom;
+  }
+}
+
+/* Height / Width */
+.h {
+  &-full {
+    height: 100%;
+  }
+  &-screen {
+    height: 100vh;
+  }
+}
+.w {
+  &-full {
+    width: 100%;
+  }
+  &-screen {
+    width: 100vw;
+  }
+}
+/* Postion */
+.postion {
+  &-absolute {
+    position: absolute;
+  }
+  &-relative {
+    position: relative;
+  }
+  &-fixed {
+    position: fixed;
+  }
+  &-static {
+    position: static;
+  }
+  &-sticky {
+    position: sticky;
+  }
+}
+
+/*--------------------------------------------------------------
+# Accessibility
+--------------------------------------------------------------*/
+/* Text meant only for screen readers. */
+.screen-reader-text {
+  clip: rect(1px, 1px, 1px, 1px);
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+}
+.screen-reader-text:focus {
+  background-color: #f1f1f1;
+  border-radius: 3px;
+  box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+  clip: auto !important;
+  color: #21759b;
+  display: block;
+  font-size: 14px;
+  font-weight: bold;
+  height: auto;
+  left: 5px;
+  line-height: normal;
+  padding: 15px 23px 14px;
+  text-decoration: none;
+  top: 5px;
+  width: auto;
+  z-index: 100000; /* Above WP toolbar. */
+}
+
+/* Do not show the outline on the skip link target. */
+#content[tabindex="-1"]:focus {
+  outline: 0;
+}

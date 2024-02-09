@@ -1,0 +1,34 @@
+/**
+Row container generator 
+1. Suffix of classes
+2. Grid gutter and row negative margins
+3. Container max-width
+All units is in pixels
+**/
+@include row-container-generator("", $grid-gutter, $container-width);
+
+/**
+Example grid generator
+@include gridGenerator(12, 15px, (575px, 767px, 991px, 1199px), (xs, sm, md, lg),"");
+Params:
+1. Number of columns
+2. Gutter in pixels (left and right side)
+2. Array of breakpoints
+3. Array of breakpoints prefix
+4. Grid prefix like theme-
+Params are not mendotory
+The function generates column classes like .#{Grid prexix}col-#{Breakpoint prefix}-#{Column count} (.col-lg-1) and 
+offset classes like .#{Breakpoint prefix}-offset-#{Column count} (.lg-offset-1)
+**/
+@include gridGenerator(
+  12,
+  $grid-gutter,
+  (
+    map-get($breakpoints, xs),
+    map-get($breakpoints, sm),
+    map-get($breakpoints, md),
+    map-get($breakpoints, lg)
+  ),
+  (xs, sm, md, lg),
+  ""
+);

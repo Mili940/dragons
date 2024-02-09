@@ -1,0 +1,126 @@
+.text-image {
+  padding: 49px 0 45px;
+
+  @include max-mq(map-get($breakpoints, sm)) {
+    padding: 37px 0 27px;
+  }
+
+  &.active {
+    .summary-text {
+      a {
+        display: none;
+      }
+    }
+  }
+
+  &--wrapper {
+    display: flex;
+    gap: 74px;
+    flex-wrap: wrap;
+
+    @include max-mq(map-get($breakpoints, ipad)) {
+      gap: 20px;
+    }
+
+    @include max-mq(map-get($breakpoints, sm)) {
+      flex-direction: column;
+      gap: 27px;
+    }
+
+    &.image-position-left {
+      flex-direction: row-reverse;
+    }
+  }
+
+  &--content {
+    width: calc(50% - 37px);
+
+    @include max-mq(map-get($breakpoints, ipad)) {
+      width: calc(50% - 10px);
+    }
+
+    @include max-mq(map-get($breakpoints, sm)) {
+      width: 100%;
+    }
+
+    .title {
+      margin-bottom: 20px;
+
+      @include max-mq(767px) {
+        margin-bottom: 28px;
+      }
+
+      h2 {
+        @include max-mq(767px) {
+          font-size: 33px;
+        }
+      }
+    }
+
+    .summary-text {
+      a {
+        &:hover {
+          text-decoration: none;
+        }
+        @include max-mq(map-get($breakpoints, sm)) {
+          display: none;
+        }
+      }
+    }
+
+    .body-text {
+      display: none;
+
+      @include max-mq(map-get($breakpoints, sm)) {
+        display: block;
+      }
+    }
+
+    p {
+      margin-bottom: 20px;
+    }
+  }
+
+  &--image {
+    width: calc(50% - 37px);
+
+    @include max-mq(map-get($breakpoints, ipad)) {
+      width: calc(50% - 10px);
+    }
+
+    @include max-mq(map-get($breakpoints, sm)) {
+      width: 100%;
+    }
+  }
+}
+
+img {
+  display: block;
+  width: 100%;
+  object-fit: cover;
+}
+
+.btn {
+  padding: 9px 26.5px 8px;
+  text-decoration: none;
+  color: $main-white;
+  border-radius: 3px;
+  max-width: 138px;
+  display: block;
+
+  @include max-mq(map-get($breakpoints, sm)) {
+    margin-top: 28px;
+  }
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+a {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.171875;
+  font-family: $secundary-font;
+  transition: all 0.4s;
+}

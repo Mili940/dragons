@@ -1,0 +1,213 @@
+#site-navigation {
+  position: relative;
+  ul {
+    &:before,
+    &:after {
+      content: "";
+      display: table;
+      width: 100%;
+    }
+
+    list-style: none;
+    margin: 0;
+    padding-left: 0;
+    li:hover > ul,
+    li.focus > ul {
+      left: auto;
+    }
+  }
+  .menu-item {
+    float: left;
+    position: relative;
+    padding: 0 10px;
+
+    @include max-mq(map-get($breakpoints, ipad)) {
+      float: left;
+      text-align: left;
+      width: 100%;
+      padding: 0 10px 0 15px;
+      a {
+        color: $main-dark;
+      }
+    }
+
+    .arrow-toggle {
+      color: $main-dark;
+      cursor: pointer;
+      display: inline-block;
+      line-height: 1;
+      height: 100%;
+      margin-right: 0;
+      padding: 1px 21px;
+      position: absolute;
+      z-index: 99;
+      right: 0;
+      top: 0;
+      &--icon {
+        transition: all 0.4s;
+        display: inline-block;
+        background-image: url("../images/arrow-down.png");
+        width: 16px;
+        height: 16px;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+      }
+    }
+
+    &.menu-item-has-children {
+      @include max-mq(map-get($breakpoints, ipad)) {
+        transition: all 0.4s;
+      }
+      &.expandeds {
+        > .arrow-toggle {
+          > .fa {
+            transform: rotate(180deg);
+          }
+        }
+      }
+    }
+    &.current-menu-item {
+      > a {
+        color: red;
+      }
+    }
+    &:hover {
+      > .sub-menu {
+        visibility: visible;
+        z-index: 9999;
+      }
+    }
+  }
+
+  a {
+    display: block;
+    text-decoration: none;
+  }
+  .sub-menu {
+    background-color: $main-white;
+    float: left;
+    left: -999em;
+    position: absolute;
+    top: auto;
+    z-index: -1;
+    visibility: hidden;
+    a {
+      width: 200px;
+    }
+    @include max-mq(map-get($breakpoints, ipad)) {
+      display: none;
+      width: 100%;
+      margin-left: 0;
+      padding-top: 0;
+      top: 0;
+      left: 0;
+      position: relative;
+    }
+  }
+
+  > div {
+    @include max-mq(map-get($breakpoints, ipad)) {
+      background-color: $main-white;
+      padding-top: 50px;
+      position: fixed;
+      transition: all 0.5s;
+      width: 40%;
+      z-index: 999;
+      overflow: auto;
+    }
+  }
+
+  // Animations
+  &.anim-left {
+    @include max-mq(map-get($breakpoints, ipad)) {
+      > div {
+        left: -100%;
+        top: 0;
+        bottom: 0;
+      }
+
+      &.toggled > div {
+        left: 0;
+      }
+    }
+  }
+
+  &.anim-right {
+    @include max-mq(map-get($breakpoints, ipad)) {
+      > div {
+        bottom: 0;
+        right: -100%;
+        top: 0;
+      }
+
+      &.toggled > div {
+        right: 0;
+      }
+
+      .menu-toggle {
+        position: relative;
+        z-index: 9999;
+      }
+    }
+  }
+
+  &.anim-top {
+    @include max-mq(map-get($breakpoints, ipad)) {
+      > div {
+        height: auto;
+        left: auto;
+        padding-top: 0;
+        position: absolute;
+        right: 0;
+        top: 100%;
+        opacity: 0;
+        visibility: hidden;
+        width: 100vw;
+      }
+
+      &.toggled > div {
+        opacity: 1;
+        top: 100%;
+        visibility: visible;
+      }
+    }
+  }
+
+  &.anim-popup {
+    @include max-mq(map-get($breakpoints, ipad)) {
+      > div {
+        bottom: 0;
+        height: 100vh;
+        left: 0;
+        opacity: 0;
+        right: 0;
+        top: 0;
+        visibility: hidden;
+        width: 100%;
+      }
+
+      &.toggled > div {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .menu-toggle {
+        position: relative;
+        z-index: 9999;
+      }
+    }
+  }
+}
+
+.menu-toggle {
+  display: none;
+  background-color: transparent;
+  border: none;
+  color: $main-dark;
+  float: right;
+
+  @include max-mq(map-get($breakpoints, ipad)) {
+    display: block !important;
+  }
+}
