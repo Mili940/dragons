@@ -9,11 +9,6 @@
          </div>
          <!--#site-navigation menu animations: anim-left, anim-right, anim-top, anim-popup -->
          <nav id="site-navigation" class="main-navigation anim-left" role="navigation">
-            <span class="hamburger menu-toggle">
-               <span class="hamburger-box">
-                  <span class="hamburger-inner"></span>
-               </span>
-            </span>
             <div class="main-navigation-primary">
                <?php wp_nav_menu(array(
                   'theme_location' => 'primary',

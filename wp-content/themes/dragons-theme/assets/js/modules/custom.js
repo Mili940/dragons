@@ -5,16 +5,10 @@ const Custom = {
     $(document).ready(function () {
       $(".summary-text a").click(function (event) {
         event.preventDefault();
-
         var $parentSection = $(this).closest(".text-image");
-
         var $bodyText = $parentSection.find(".body-text");
-
-       
-
-          $bodyText.slideDown();
-          $parentSection.addClass("active");
-        
+        $bodyText.slideDown();
+        $parentSection.addClass("active");
       });
     });
   },
